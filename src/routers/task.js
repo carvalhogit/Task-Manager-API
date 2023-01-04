@@ -11,7 +11,7 @@ router.post('/task', async (req, res) => {
     }
 });
 
-router.get('/list', async (req, res) => {
+router.get('/task', async (req, res) => {
     try {
         const list = await TaskModel.find({});
         res.status(200).json(list);
@@ -20,7 +20,7 @@ router.get('/list', async (req, res) => {
     }
 });
 
-router.get('/list/:id', async (req, res) => {
+router.get('/task/:id', async (req, res) => {
     try {
         const list = await TaskModel.findById(req.params.id);
         res.status(200).json(list);
@@ -29,7 +29,7 @@ router.get('/list/:id', async (req, res) => {
     }
 });
 
-router.patch('/list/:id', async (req, res) => {
+router.patch('/task/:id', async (req, res) => {
     try {
         const list = await TaskModel.findByIdAndUpdate(req.params.id, req.body, {new: true});
         res.status(201).json(list);
@@ -38,7 +38,7 @@ router.patch('/list/:id', async (req, res) => {
     }
 });
 
-router.put('/list/:id', async (req, res) => {
+router.put('/task/:id', async (req, res) => {
     try {
         const list = await TaskModel.findByIdAndUpdate(req.params.id, req.body, {new: true});
         res.status(201).json(list);
@@ -47,7 +47,7 @@ router.put('/list/:id', async (req, res) => {
     }
 });
 
-router.delete('/list/:id', async (req, res) => {
+router.delete('/task/:id', async (req, res) => {
     try {
         const list = await TaskModel.findByIdAndRemove(req.params.id);
         res.status(200).json(list);
